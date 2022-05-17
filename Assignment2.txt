@@ -1,0 +1,79 @@
+-- 
+-- Roll No: <19>
+-- Name: <Jasim Ihsan>
+-- Program: <Assignment 2 >
+-- 
+
+
+--
+-- Table structure for table <faculty>
+--
+
+create table  faculty (fno varchar(5), fname varchar(15), doj varchar(10), specialization varchar(15), constraint fno_pk primary key(fno));
+--
+-- Table structure for table <subject>
+--
+create table subject (sname varchar(15) not null, sdate date not null, edate date not null, roomno int(5) not null , fnom int(5),constraint sname_roomno_pk primary key(sname,roomno),constraint fno_fk foreign key(fnom) references faculty(fno));
+
+
+-- ---------create/alter statement commands----------- # This line may be removed in the actual file
+
+--
+-- Dumping data for table <faculty>
+-- 
+insert into faculty values(01,"jasim ihsan","12-03-2021",'systems management');
+
+
+insert into faculty values(02,"appu","06-09-2020",'systems development');
+
+
+insert into faculty values(03,'ammu','25-12-2019','networking');
+
+insert into faculty values(04,'shabeeb','20-10-2018','application software');
+
+insert into faculty values(05,'nuzrath','14-01-2010','internet working');
+
+
+
+
+--
+-- Dumping data for table <subject>
+-- 
+
+insert into subject values('ram','2010-06-28','2015-03-12','C01','01');
+
+insert into subject values('manohar','2015-10-12','2018-04-20','C02','02');
+
+
+insert into subject values('rajan','2017-07-15','2020-03-26','C03','04');
+
+insert into subject values('amritha','2020-10-26','2022-03-26','C04','04');
+
+
+insert into subject values('drisya','2021-10-26','2023-03-26','C05','05â€™);
+
+
+
+
+-- --------insert/update statement commands----------- # This line may be removed in the actcual file
+
+--
+alter table subject add duration int;
+
+
+alter table faculty modify column specialization varchar(20);
+
+
+
+alter table subject drop column sdate;
+
+
+
+-- SQl Query Statements
+--
+create table Teaches(fno int(5) not null,sname varchar(15) not null,sdate date not null,edate date not null,primary key(fno,sname), foreign key(fno)references faculty(fno),foreign key(sname) references subject(sname))
+
+
+
+-- -----SQL query statments preceeded by the its question-------- # This line may be removed in the actual file
+-- -----Question number should be commented---------------#This line may be removed in the actual file
