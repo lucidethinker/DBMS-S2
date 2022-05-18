@@ -1,7 +1,7 @@
 --
 -- Roll No: <19>
--- Name: <Jasim Ihsan >
--- Program: <Exam1>
+-- Name: <Jasim Ihsan>
+-- Program: <Vehicle Insurance Management System - I>
 --
 
 
@@ -51,7 +51,7 @@ create table participated (license_no int,reg_no varchar(10), claim_no int , amt
 
 -- Dumping data for table <customer>
 --
-insert into customer values(100,'John','malappuram',30,'9747875421');
+insert into customer values(100,'Jasim','malappuram',30,'9747875421');
 insert into customer values(101,'Abhin','kannur',20,'9744881122');
 insert into customer values(102,'Jeorge','mumbai',20,'9747881122');
 insert into customer values(103,'ibrahim','kasargod',65,'8187551122');
@@ -117,4 +117,6 @@ SELECT customer.name FROM customer,policy WHERE policy.license_no=customer.licen
 SELECT C.name ,P.reg_no,P.license_no FROM customer AS C , policy AS P WHERE P.license_no=C.license_no AND mode='cheque';
 select name,license_no from customer natural join (vehicle natural join policy) where make='maruti';
 select name from customer natural join ( accident natural join (participated natural join policy)) where datediff(doa,issue_date)<365;
-select name,count(license_no) from participated natural join customer group by license_no having name='John';
+select name,count(license_no) from participated natural join customer group by license_no having name='Jasim';
+
+delete from owns where reg_no in(select reg_no from vehicle where model='alto')and license_no=(select license_no from customer where name='abel');
